@@ -12542,11 +12542,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Arbete\\Collector\\GothenburgToll\\GothenburgToll\\GothenburgToll.csproj",
+      "projectUniqueName": "C:\\Arbete\\Collector\\ArbetsprovCollector\\GothenburgToll\\GothenburgToll\\GothenburgToll.csproj",
       "projectName": "GothenburgToll",
-      "projectPath": "C:\\Arbete\\Collector\\GothenburgToll\\GothenburgToll\\GothenburgToll.csproj",
+      "projectPath": "C:\\Arbete\\Collector\\ArbetsprovCollector\\GothenburgToll\\GothenburgToll\\GothenburgToll.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "C:\\Arbete\\Collector\\GothenburgToll\\GothenburgToll\\obj\\",
+      "outputPath": "C:\\Arbete\\Collector\\ArbetsprovCollector\\GothenburgToll\\GothenburgToll\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

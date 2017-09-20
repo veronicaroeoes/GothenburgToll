@@ -9,3 +9,14 @@ C:\Arbete\Collector\GothenburgToll\GothenburgToll\bin\Debug\netcoreapp2.0\Gothen
 C:\Arbete\Collector\GothenburgToll\GothenburgToll\bin\Debug\netcoreapp2.0\GothenburgToll.pdb
 C:\Arbete\Collector\GothenburgToll\GothenburgToll\obj\Debug\netcoreapp2.0\GothenburgToll.dll
 C:\Arbete\Collector\GothenburgToll\GothenburgToll\obj\Debug\netcoreapp2.0\GothenburgToll.pdb
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\bin\Debug\netcoreapp2.0\GothenburgToll.deps.json
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\bin\Debug\netcoreapp2.0\GothenburgToll.runtimeconfig.json
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\bin\Debug\netcoreapp2.0\GothenburgToll.runtimeconfig.dev.json
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\bin\Debug\netcoreapp2.0\GothenburgToll.dll
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\bin\Debug\netcoreapp2.0\GothenburgToll.pdb
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\obj\Debug\netcoreapp2.0\GothenburgToll.csprojResolveAssemblyReference.cache
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\obj\Debug\netcoreapp2.0\GothenburgToll.csproj.CoreCompileInputs.cache
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\obj\Debug\netcoreapp2.0\GothenburgToll.AssemblyInfoInputs.cache
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\obj\Debug\netcoreapp2.0\GothenburgToll.AssemblyInfo.cs
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\obj\Debug\netcoreapp2.0\GothenburgToll.dll
+C:\Arbete\Collector\ArbetsprovCollector\GothenburgToll\GothenburgToll\obj\Debug\netcoreapp2.0\GothenburgToll.pdb
