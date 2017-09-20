@@ -1,0 +1,53 @@
+﻿* {
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 100px 5%;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://images.unsplash.com/photo-1489008777659-ad1fc8e07097) center center;
+    background-size: cover;
+    color: white;
+    font-size: 1.6rem;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 100;
+}
+
+a:visited {
+    color: aquamarine;
+}
+
+.addTollForm select, input {
+    width: 300px;
+    max-width: 90%;
+    margin-bottom: 20px;
+}
+
+.addTollForm label {
+    width: 100px;
+    text-align: right;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.addTollForm input[type=submit] {
+    width: 120px;
+    border-radius: 200px;
+    background-color: hotpink;
+    height: 30px;
+    border-style: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.6rem;
+}

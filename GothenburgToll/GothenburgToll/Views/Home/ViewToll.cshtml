@@ -1,0 +1,10 @@
+﻿@model ViewTollVM
+
+<h1>Ange registreringsnummer:</h1>
+    <form asp-controller="Home" asp-action="ViewToll">
+        <label asp-for="LicensePlate"></label>
+        <input asp-for="LicensePlate" />
+        <span asp-validation-for="LicensePlate"></span>
+        <input type="submit" text="Search" />
+    </form>
+
