@@ -10,15 +10,15 @@ namespace GothenburgToll.Controllers
 {
     public class HomeController : Controller
     {
-        List<CreateTollVM> tollList = new List<CreateTollVM>();
-
+        GothenburgTollDBContext _context;
         ITollCalculator _tollCalculator;
         IVehicle _vehicle;
 
-        public HomeController(ITollCalculator tollCalculator, IVehicle vehicle)
+        public HomeController(ITollCalculator tollCalculator, IVehicle vehicle, GothenburgTollDBContext context)
         {
             _tollCalculator = tollCalculator;
             _vehicle = vehicle;
+            _context = context; 
         }
 
         public IActionResult Index()
@@ -33,7 +33,7 @@ namespace GothenburgToll.Controllers
         }
 
         [HttpPost]
-        public IActionResult ViewToll(ViewTollVM input)
+        public IActionResult ViewToll(Vehicle input)
         {
             return View();
         }
@@ -45,20 +45,18 @@ namespace GothenburgToll.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateToll(CreateTollVM createToll)
+        public IActionResult CreateToll(Vehicle createToll)
         {
             if (!ModelState.IsValid)
             {
                 return RedirectToAction(nameof(CreateToll));
             }
 
-            //createToll.TollFee = _tollCalculator.GetTollFee(createToll.DateTimePass, createToll.VehicleType);
-
-            tollList.Add(createToll);
+            _context.AddToll(createToll);
 
             // If TempData... 
 
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
     }
 }

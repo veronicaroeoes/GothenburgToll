@@ -129,6 +129,23 @@ namespace GothenburgToll.Models
             return false;
         }
 
+        //public IVehicle[] GetAllIVehicleTypes()
+        //{
+
+
+        //    var instances = from t in Assembly.GetExecutingAssembly().GetTypes()
+        //                    where t.GetInterfaces().Contains(typeof(ISomething))
+        //                             && t.GetConstructor(Type.EmptyTypes) != null
+        //                    select Activator.CreateInstance(t) as ISomething;
+
+        //    foreach (var instance in instances)
+        //    {
+        //        instance.Foo(); // where Foo is a method of ISomething
+        //    }
+
+        //    return; 
+        //}
+
         private enum TollFreeVehicles
         {
             Motorbike = 0,
