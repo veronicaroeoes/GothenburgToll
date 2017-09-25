@@ -26,7 +26,7 @@ namespace GothenburgToll
                     DateTimePass = DateTime.Now,
                     VehicleType = new SelectListItem[]
                     {
-                    new SelectListItem { Text = viewModel.SelectedVehicleType, Value = viewModel.SelectedVehicleType}
+                    new SelectListItem { Text = viewModel.SelectedVehicleType, Value = viewModel.SelectedVehicleType, Selected = true}
                     }
                 };
             }
@@ -63,7 +63,7 @@ namespace GothenburgToll
             var corrLicense = licensePlate.Replace(" ", "").ToUpper();
 
             return this.Vehicle
-                .Where(v => v.LicensePlate == licensePlate)
+                .Where(v => v.LicensePlate == corrLicense)
                 .Select(v => new CreateTollVM
                 {
                     LicensePlate = corrLicense,
@@ -79,7 +79,6 @@ namespace GothenburgToll
                 .Where(v => v.LicensePlate == corrLicense)
                 .Select(v => new ViewTollVM
                 {
-                    //todo: Skicka med id....
                     LicensePlate = corrLicense,
                     SelectedVehicleType = v.SelectedVehicleType,
                     DateTimePassArr = Vehicle.Where(x => x.LicensePlate == corrLicense).OrderBy(o => o.DateTimePass).Select(d => d.DateTimePass).ToArray()

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace GothenburgToll.Models.ViewModels
 {
-    [NotMapped]
     public class CreateTollVM : Vehicle
     {
+        //[Required(ErrorMessage = "Enter vehicle type")]
         public SelectListItem[] VehicleType { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace GothenburgToll.Controllers
 {
     public class HomeController : Controller
     {
-        //todo: millisekunder
         //todo: API för helgdagar
 
         GothenburgTollDBContext _context;
@@ -67,7 +66,8 @@ namespace GothenburgToll.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                var model = _context.CreateVehicleByLicensePlate(createToll.LicensePlate);
+                return View(_context.ListItems(model));
             }
 
             _context.AddToll(createToll);
