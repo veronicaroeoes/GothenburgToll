@@ -2,21 +2,17 @@
 
 <h1>Add toll</h1>
 <form asp-controller="Home" asp-action="createToll" class="addTollForm">
-    <label asp-for="VehicleType">Vehicle</label>
-    <select asp-for="VehicleType" required>
-        <option value="" selected="selected" disabled="disabled" style="display:none"></option>
-        <option value="Car">Car</option>
-        <option value="Motorbike">Motorbike</option>
-    </select>
-    <span asp-validation-for="VehicleType"></span>
-    <br/>
-    <label asp-for="LicensePlate">License Plate</label>
+    <label asp-for="LicensePlate">License plate</label>
     <input asp-for="LicensePlate" />
-    <span asp-validation-for="LicensePlate" ></span>
-    <br/>
-    <label asp-for="DateTimePass">Time for toll</label>
-    <input asp-for="DateTimePass" />
+    <span asp-validation-for="LicensePlate"></span>
+    <br />
+    <label asp-for="SelectedVehicleType">Vehicle</label>
+    <select asp-for="SelectedVehicleType" asp-items="Model.VehicleType"></select>
+    <span asp-validation-for="SelectedVehicleType"></span>
+    <br />
+    <label asp-for="DateTimePass">Time for passage</label>
+    <input type="datetime" asp-for="DateTimePass" value="@DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss.fff tt")" />
     <span asp-validation-for="DateTimePass"></span>
     <br />
-    <input type="submit" text="Add" />
+    <button type="submit">Add</button>
 </form>

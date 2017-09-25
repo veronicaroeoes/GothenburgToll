@@ -8,32 +8,6 @@ namespace GothenburgToll.Models
 {
     public class TollCalculator : ITollCalculator
     {
-        //IsTollFreeVehicle() bool 
-        //IsTollFreeDate() bool 
-        //GetTollFee(date, vehicle) int, om båda ovan returnerar nej  
-        //GetTollFee(vechicle, date[]) int, returnerar total för ett fordon
-
-        IVehicle _vehicle;
-
-        public TollCalculator(IVehicle vehicle)
-        {
-            _vehicle = vehicle;
-        }
-
-        static List<ViewTollVM> viewTolls = new List<ViewTollVM>
-        {
-            new ViewTollVM { LicensePlate = "ABC123"},
-            new ViewTollVM { LicensePlate = "BCD234"},
-            new ViewTollVM { LicensePlate = "CDE345"}
-        };
-
-        public ViewTollVM GetOneVehicle(string licensePlate)
-        {
-            //Gå igenom lista på alla tullpasseringar - hitta samtliga med angivet licenseplate, ta ut dessa till array
-            //Räkna ihop alla fee's
-            return null;
-        }
-
         /**
          * Calculate the total toll fee for one day
          *
@@ -41,6 +15,13 @@ namespace GothenburgToll.Models
          * @param dates   - date and time of all passes on one day
          * @return - the total toll fee for that day
          */
+
+        IVehicle _vehicle;
+
+        public TollCalculator(IVehicle vehicle)
+        {
+            _vehicle = vehicle;
+        }
 
         public int GetTollFee(IVehicle vehicle, DateTime[] dates)
         {
@@ -76,7 +57,7 @@ namespace GothenburgToll.Models
                 return false;
             }
 
-            string vehicleType = _vehicle.GetVehicleType();
+            string vehicleType = vehicle.GetVehicleType();
             return vehicleType.Equals(TollFreeVehicles.Motorbike.ToString()) ||
                    vehicleType.Equals(TollFreeVehicles.Tractor.ToString()) ||
                    vehicleType.Equals(TollFreeVehicles.Emergency.ToString()) ||
@@ -112,6 +93,8 @@ namespace GothenburgToll.Models
 
             if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday) return true;
 
+            if (year < 2013) return true;
+
             if (year == 2013)
             {
                 if (month == 1 && day == 1 ||
@@ -128,23 +111,6 @@ namespace GothenburgToll.Models
             }
             return false;
         }
-
-        //public IVehicle[] GetAllIVehicleTypes()
-        //{
-
-
-        //    var instances = from t in Assembly.GetExecutingAssembly().GetTypes()
-        //                    where t.GetInterfaces().Contains(typeof(ISomething))
-        //                             && t.GetConstructor(Type.EmptyTypes) != null
-        //                    select Activator.CreateInstance(t) as ISomething;
-
-        //    foreach (var instance in instances)
-        //    {
-        //        instance.Foo(); // where Foo is a method of ISomething
-        //    }
-
-        //    return; 
-        //}
 
         private enum TollFreeVehicles
         {

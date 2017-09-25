@@ -1,10 +1,13 @@
 ﻿@model ViewTollVM
 
-<h1>Ange registreringsnummer:</h1>
-    <form asp-controller="Home" asp-action="ViewToll">
-        <label asp-for="LicensePlate"></label>
-        <input asp-for="LicensePlate" />
-        <span asp-validation-for="LicensePlate"></span>
-        <input type="submit" text="Search" />
-    </form>
-
+    <h1>License plate: @Model.LicensePlate</h1>
+<h1>Vehicle type: @Model.SelectedVehicleType</h1> 
+<h1>Total toll fee: @Model.TotalFee SEK</h1>
+<br />
+@foreach (var tollPassage in Model.DateTimePassArr)
+{
+    <h4>@tollPassage.ToString("yyyy / MM / dd hh: mm:ss.fff tt")</h4>
+}
+<br />
+<br />
+<a asp-controller="Home" asp-action="Index">Back to home</a>

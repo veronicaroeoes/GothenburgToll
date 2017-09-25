@@ -10,6 +10,9 @@ namespace GothenburgToll.Controllers
 {
     public class HomeController : Controller
     {
+        //todo: millisekunder
+        //todo: API för helgdagar
+
         GothenburgTollDBContext _context;
         ITollCalculator _tollCalculator;
         IVehicle _vehicle;
@@ -18,7 +21,7 @@ namespace GothenburgToll.Controllers
         {
             _tollCalculator = tollCalculator;
             _vehicle = vehicle;
-            _context = context; 
+            _context = context;
         }
 
         public IActionResult Index()
@@ -29,34 +32,54 @@ namespace GothenburgToll.Controllers
         [HttpGet]
         public IActionResult ViewToll(string licensePlate)
         {
-            return View(licensePlate.ToString());
+            var selectedVehicle = _context.GetVehicleByLicensePlate(licensePlate);
+
+            if (selectedVehicle == null)
+            {
+                TempData["Succeded"] = "There is no toll for this license plate yet";
+                return RedirectToAction("Success");
+            }
+
+            IVehicle vehicleType = VehicleService.GetIVehicle(selectedVehicle.SelectedVehicleType);
+            selectedVehicle.TotalFee = _tollCalculator.GetTollFee(vehicleType, selectedVehicle.DateTimePassArr);
+            DateTime[] newArr = selectedVehicle.DateTimePassArr.OrderByDescending(n => n).ToArray();
+            selectedVehicle.DateTimePassArr = newArr;
+
+            return View(selectedVehicle);
         }
 
         [HttpPost]
-        public IActionResult ViewToll(Vehicle input)
+        public IActionResult ViewToll()
         {
             return View();
         }
 
         [HttpGet]
-        public IActionResult CreateToll()
+        public IActionResult CreateToll(string licensePlate)
         {
-            return View();
+            var selectedVehicle = _context.CreateVehicleByLicensePlate(licensePlate);
+
+            return View(_context.ListItems(selectedVehicle));
         }
 
         [HttpPost]
-        public IActionResult CreateToll(Vehicle createToll)
+        public IActionResult CreateToll(CreateTollVM createToll)
         {
             if (!ModelState.IsValid)
             {
-                return RedirectToAction(nameof(CreateToll));
+                return View();
             }
 
             _context.AddToll(createToll);
 
-            // If TempData... 
+            TempData["Succeded"] = "Toll added!";
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Success");
+        }
+
+        public IActionResult Success()
+        {
+            return View();
         }
     }
 }

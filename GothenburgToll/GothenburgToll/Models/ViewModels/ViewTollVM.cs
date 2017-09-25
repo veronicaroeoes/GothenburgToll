@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 namespace GothenburgToll.Models.ViewModels
 {
     [NotMapped]
-    public class ViewTollVM
+    public class ViewTollVM : Vehicle
     {
-        public string LicensePlate { get; set; }
+        public DateTime[] DateTimePassArr { get; set; }
+        public int TotalFee { get; set; }
     }
 }

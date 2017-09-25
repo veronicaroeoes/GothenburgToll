@@ -9,7 +9,7 @@ namespace GothenburgToll.Models
     [NotMapped]
     public class Motorbike : Vehicle, IVehicle
     {
-        public string GetVehicleType()
+        public override string GetVehicleType()
         {
             return "Motorbike";
         }

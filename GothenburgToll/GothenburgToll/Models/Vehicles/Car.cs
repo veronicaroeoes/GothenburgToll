@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace GothenburgToll.Models
 {
     [NotMapped]
-    public class Car : Vehicle, IVehicle
+    public class Car : Vehicle
     {
-         public string GetVehicleType()
+         public override string GetVehicleType()
         {
             return "Car";
         }

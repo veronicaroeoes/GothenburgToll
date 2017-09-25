@@ -10,6 +10,5 @@ namespace GothenburgToll.Models
     {
         int GetTollFee(IVehicle vehicle, DateTime[] dates);
         int GetTollFee(DateTime date, IVehicle vehicle);
-        ViewTollVM GetOneVehicle(string licensePlate);
     }
 }
