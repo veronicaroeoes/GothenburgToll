@@ -1,11 +1,11 @@
 ﻿@model ViewTollVM
 <h1>Enter license plate:</h1>
-<form asp-action="Home" method="get" class="addTollForm">
+<form asp-action="Home" class="addTollForm">
     <input asp-for="LicensePlate" />
     <span asp-validation-for="LicensePlate"></span>
     <br />
-    <button type="submit" asp-action="ViewToll" asp-for-LicensePlate="Licenseplate">View total toll</button>
+    <button type="submit" asp-action="ViewToll" formmethod="get" asp-for-LicensePlate="Licenseplate">View total toll</button>
     <br />
     <br />
-    <button type="submit" asp-action="CreateToll" asp-for-LicensePlate="Licenseplate">Add new toll</button>
+    <button type="submit" asp-action="Index" formmethod="post" asp-for-LicensePlate="Licenseplate">Add new toll</button>
 </form>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using GothenburgToll.Models.Interfaces;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,7 +12,6 @@ namespace GothenburgToll.Models
     {
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Select what kind of vehicle")]
         public string SelectedVehicleType { get; set; }
 
         [Required(ErrorMessage = "Enter license plate")]

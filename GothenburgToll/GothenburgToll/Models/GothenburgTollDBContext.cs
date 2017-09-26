@@ -34,6 +34,7 @@ namespace GothenburgToll
             {
                 VehicleType = new SelectListItem[]
                     {
+                            new SelectListItem { Text = "-Choose vehicle type-", Value = null, Disabled = true, Selected = true},
                             new SelectListItem { Text = "Car", Value = "Car"},
                             new SelectListItem { Text = "Motorbike", Value="Motorbike"},
                             new SelectListItem { Text = "Diplomat", Value="Diplomat"},
@@ -73,6 +74,11 @@ namespace GothenburgToll
 
         internal ViewTollVM GetVehicleByLicensePlate(string licensePlate)
         {
+            if (licensePlate == null)
+            {
+                return null; 
+            }
+
             var corrLicense = licensePlate.Replace(" ", "").ToUpper();
 
             return this.Vehicle

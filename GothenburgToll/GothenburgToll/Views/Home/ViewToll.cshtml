@@ -4,9 +4,10 @@
 <h1>Vehicle type: @Model.SelectedVehicleType</h1> 
 <h1>Total toll fee: @Model.TotalFee SEK</h1>
 <br />
+<h2>Passages:</h2>
 @foreach (var tollPassage in Model.DateTimePassArr)
 {
-    <h4>@tollPassage.ToString("yyyy / MM / dd hh: mm:ss.fff tt")</h4>
+    <h4>@tollPassage.ToString("yyyy/MM/dd HH:mm:ss.fff")</h4>
 }
 <br />
 <br />

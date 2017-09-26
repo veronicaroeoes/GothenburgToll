@@ -10,7 +10,10 @@ namespace GothenburgToll.Models.ViewModels
 {
     public class CreateTollVM : Vehicle
     {
-        //[Required(ErrorMessage = "Enter vehicle type")]
+
+        [Required(ErrorMessage = "Select what kind of vehicle")]
+        public new string SelectedVehicleType { get; set; }
+
         public SelectListItem[] VehicleType { get; set; }
     }
 }

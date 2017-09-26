@@ -1,4 +1,5 @@
-﻿using GothenburgToll.Models.Vehicles;
+﻿using GothenburgToll.Models.Interfaces;
+using GothenburgToll.Models.Vehicles;
 using System;
 using System.Collections.Generic;
 using System.Linq;

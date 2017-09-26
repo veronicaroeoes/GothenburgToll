@@ -1,7 +1,9 @@
-﻿using GothenburgToll.Models.ViewModels;
+﻿using GothenburgToll.Models.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace GothenburgToll.Models
@@ -15,13 +17,6 @@ namespace GothenburgToll.Models
          * @param dates   - date and time of all passes on one day
          * @return - the total toll fee for that day
          */
-
-        IVehicle _vehicle;
-
-        public TollCalculator(IVehicle vehicle)
-        {
-            _vehicle = vehicle;
-        }
 
         public int GetTollFee(IVehicle vehicle, DateTime[] dates)
         {
@@ -105,6 +100,20 @@ namespace GothenburgToll.Models
                     month == 7 ||
                     month == 11 && day == 1 ||
                     month == 12 && (day == 24 || day == 25 || day == 26 || day == 31))
+                {
+                    return true;
+                }
+            }
+            else if (year == 2017)
+            {
+                if (month == 1 && (day == 1 || day == 5 || day == 6) ||
+                    month == 4 && (day == 13 || day == 14 || day == 15 || day == 16 || day == 17 || day == 30) ||
+                    month == 5 && (day == 1 || day == 24 || day == 25) ||
+                    month == 6 && (day == 3 || day == 4 || day == 5 || day == 6 || day == 23 || day == 24) ||
+                    month == 7 ||
+                    month == 11 && (day == 3 || day == 4) ||
+                    month == 12 && (day == 24 || day == 25 || day == 26)
+                    )
                 {
                     return true;
                 }

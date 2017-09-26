@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using GothenburgToll.Models;
 using Microsoft.EntityFrameworkCore;
+using GothenburgToll.Models.Interfaces;
 
 namespace GothenburgToll
 {
@@ -18,7 +19,6 @@ namespace GothenburgToll
             var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TollDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddDbContext<GothenburgTollDBContext>(o => o.UseSqlServer(connString));
             services.AddMvc();
-            services.AddTransient<IVehicle, Car>();
             services.AddTransient<ITollCalculator, TollCalculator>();
         }
 

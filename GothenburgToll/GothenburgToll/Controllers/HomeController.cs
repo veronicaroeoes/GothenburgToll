@@ -1,25 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GothenburgToll.Models.ViewModels;
 using GothenburgToll.Models;
+using GothenburgToll.Models.Interfaces;
 
 namespace GothenburgToll.Controllers
 {
     public class HomeController : Controller
     {
-        //todo: API för helgdagar
-
         GothenburgTollDBContext _context;
         ITollCalculator _tollCalculator;
-        IVehicle _vehicle;
 
-        public HomeController(ITollCalculator tollCalculator, IVehicle vehicle, GothenburgTollDBContext context)
+        public HomeController(ITollCalculator tollCalculator, GothenburgTollDBContext context)
         {
             _tollCalculator = tollCalculator;
-            _vehicle = vehicle;
             _context = context;
         }
 
@@ -28,10 +24,21 @@ namespace GothenburgToll.Controllers
             return View();
         }
 
-        [HttpGet]
-        public IActionResult ViewToll(string licensePlate)
+        [HttpPost]
+        public IActionResult Index(Vehicle model)
         {
-            var selectedVehicle = _context.GetVehicleByLicensePlate(licensePlate);
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            return RedirectToAction(nameof(CreateToll), model);
+        }
+        
+        [HttpGet]
+        public IActionResult ViewToll(ViewTollVM model)
+        {
+            var selectedVehicle = _context.GetVehicleByLicensePlate(model.LicensePlate);
 
             if (selectedVehicle == null)
             {
@@ -66,7 +73,7 @@ namespace GothenburgToll.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var model = _context.CreateVehicleByLicensePlate(createToll.LicensePlate);
+                CreateTollVM model = _context.CreateVehicleByLicensePlate(createToll.LicensePlate);
                 return View(_context.ListItems(model));
             }
 
